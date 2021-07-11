@@ -31,10 +31,6 @@ jobs:
             name: "Get local directory files"
             command: Get-ChildItem
             shell: powershell
-
-        - run:
-            name: "Check MSBuild"
-            command: msbuild
         - run:
             name: "Restore nuget packages"
             command: nuget restore
