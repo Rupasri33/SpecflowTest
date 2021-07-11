@@ -28,10 +28,15 @@ jobs:
             command: Get-Location
             shell: powershell
             working_directory: .\SpecflowTest
+        - run:
+            name: "Restore nuget packages"
+            command: nuget restore
+            shell: powershell
+            working_directory: .\SpecflowTest
         - run: 
             name: "build VS proj"
             command: msbuild SpecflowParallelTest.sln
-            working_directory: "%CIRCLE_WORKING_DIRECTORY%\\SpecflowTest"
+            working_directory: .\SpecflowTest
 workflows:
   version: 2
   cloud-automation-build: 
