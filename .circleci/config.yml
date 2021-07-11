@@ -16,9 +16,6 @@ jobs:
         - run: 
             name: "Hello world"
             command: echo "hello building Automation solution"
-        - run:
-           name: "Install Nuget with Chocolatey"
-           command: choco install nuget.commandline
         - run: 
            name: "print env variables"
            command: "Get-ChildItem env:"
@@ -33,7 +30,7 @@ jobs:
             shell: powershell
         - run:
             name: "Restore nuget packages"
-            command: nuget restoreSpecflowParallelTest.sln
+            command: nuget restore SpecflowParallelTest.sln
             shell: powershell
             
         - run: 
