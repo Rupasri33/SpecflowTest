@@ -29,6 +29,9 @@ jobs:
             shell: powershell
             working_directory: .\SpecflowTest
         - run:
+            name: "Check MSBuild"
+            command: msbuild
+        - run:
             name: "Restore nuget packages"
             command: nuget restore
             shell: powershell
