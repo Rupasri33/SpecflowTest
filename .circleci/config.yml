@@ -27,7 +27,11 @@ jobs:
             name: "Get working directory"
             command: Get-Location
             shell: powershell
-            working_directory: .\SpecflowTest
+        - run:
+            name: "Get local directory files"
+            command: Get-ChildItem
+            shell: powershell
+
         - run:
             name: "Check MSBuild"
             command: msbuild
@@ -35,7 +39,7 @@ jobs:
             name: "Restore nuget packages"
             command: nuget restore
             shell: powershell
-            working_directory: .\SpecflowTest
+            
         - run: 
             name: "build VS proj"
             command: msbuild SpecflowParallelTest.sln
