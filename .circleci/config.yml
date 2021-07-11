@@ -33,13 +33,13 @@ jobs:
             shell: powershell
         - run:
             name: "Restore nuget packages"
-            command: nuget restore
+            command: nuget restoreSpecflowParallelTest.sln
             shell: powershell
             
         - run: 
             name: "build VS proj"
             command: msbuild SpecflowParallelTest.sln
-            working_directory: .\SpecflowTest
+            
 workflows:
   version: 2
   cloud-automation-build: 
