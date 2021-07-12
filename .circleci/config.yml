@@ -35,10 +35,22 @@ jobs:
             
         - run: 
             name: "build VS proj"
-            command: msbuild SpecflowParallelTest.sln
-            
+            command: msbuild SpecflowParallelTest.sln /t:Build /p:RunOctoPack=true /fl /flp:errorsonly;
+  
+    deploy-to-nexus:
+      executor:       
+        name: win/default
+        size: medium
+      steps:
+      - run:
+          name: Writing an Example File
+          command: echo "some file content" > package-$CIRCLE_SHA1.txt
+       
+       
 workflows:
   version: 2
   cloud-automation-build: 
     jobs:
       - build
+      - deploy-to-nexus:
+          context: teleadmin
